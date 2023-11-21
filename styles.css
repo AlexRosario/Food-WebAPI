@@ -1,0 +1,173 @@
+.all-button {
+	width: 100px;
+	height: 40px;
+	text-align: center;
+	margin: 20px auto;
+}
+
+.list-container {
+	text-align: center;
+	max-width: 100vw;
+	overflow: none;
+	padding: 0 5%;
+}
+
+.country {
+	text-align: center;
+	width: 100px;
+	margin: 0 auto;
+	text-decoration: none;
+}
+.index {
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 40px;
+}
+
+.alphabet {
+	display: flex;
+	justify-content: center;
+
+	flex-wrap: wrap;
+}
+
+.letter {
+	width: 20px;
+	height: 20px;
+}
+
+#viewer-list,
+#faves-list {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	width: 100%;
+	text-align: center;
+}
+
+.sortBtn {
+	width: 40px;
+	margin: 20px auto;
+}
+
+#faves,
+#viewer {
+	display: flex;
+	flex-direction: row;
+	row-gap: 0;
+	position: relative;
+	width: 100%;
+	height: 50vh;
+	flex-wrap: wrap;
+	overflow: scroll;
+	margin: 0 auto;
+	justify-content: center;
+	justify-items: center;
+}
+
+.meal {
+	position: relative;
+	background-color: rgb(106, 155, 185);
+	display: flex;
+	flex-direction: column;
+	margin: none;
+	min-width: 25%;
+	max-width: 25%;
+	height: 27%;
+	min-height: 27%;
+	min-height: 150px;
+	border-radius: 5px;
+	margin: 1.5rem;
+	z-index: 1;
+	opacity: 0.75;
+	transition: all 0.3s ease-in-out;
+}
+
+.meal-top {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 50%;
+	flex-wrap: wrap;
+}
+
+.meal .meal-top .recipe-pic {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 45%;
+	max-height: 50%;
+	max-width: 50%;
+	border-radius: 10px 10px 25px 10px;
+	padding-bottom: 5%;
+	margin: 1%;
+}
+
+.meal-top .recipe-country {
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	font-size: 1em;
+	margin: 1%;
+	padding: 2%;
+}
+
+.meal .meal-top i {
+	position: absolute;
+	top: 5%;
+	right: 5%;
+	z-index: 5;
+}
+
+.meal .meal-bottom {
+	height: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 1%;
+	overflow: none;
+	contain: content;
+}
+
+.meal .meal-bottom .recipe {
+	text-decoration: none;
+	color: orange;
+	pointer-events: all;
+}
+
+.meal:hover {
+	transform: scale(1.2);
+	opacity: 1;
+}
+
+@media screen and (min-width: 1600px) {
+	.meal {
+		height: 300px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.meal {
+		min-width: 35%;
+	}
+
+	.meal-top .recipe-country {
+		top: 45%;
+		left: initial;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	#faves,
+	#viewer {
+		flex-wrap: none;
+		align-items: center;
+	}
+
+	.meal {
+		min-width: 60%;
+	}
+}
