@@ -150,6 +150,12 @@ const sortItems = (direction, location) => {
 	let mealsArray = Array.from(meals);
 
 	mealsArray.sort((a, b) => {
+		let [aText, bText] = [a, b].map((item) =>
+			item.querySelector(".recipe").textContent.toLowerCase()
+		);
+		const arr = direction === "asc" ? [aText, bText] : [bText, aText];
+		return arr[0].localeCompare(arr[1]);
+		/*
 		let aText = a.querySelector(".recipe").textContent.toLowerCase();
 		let bText = b.querySelector(".recipe").textContent.toLowerCase();
 
@@ -157,7 +163,7 @@ const sortItems = (direction, location) => {
 			return aText.localeCompare(bText);
 		} else {
 			return bText.localeCompare(aText);
-		}
+		}*/
 	});
 
 	location.innerHTML = "";
@@ -272,16 +278,22 @@ nextButton.addEventListener("click", () => {
 const makeIndex = () => {
 	const alphabet = document.getElementById("alphabet");
 
+	// Attach event listener to the parent
+	alphabet.addEventListener("click", (event) => {
+		// Check if the clicked element is a button
+		if (event.target.tagName === "BUTTON") {
+			const letter = event.target.innerText;
+			displayItemsByLetter(letter);
+		}
+	});
+
 	for (let i = 1; i <= 26; i++) {
 		const indexAt = document.createElement("button");
 		const letter = String.fromCharCode(64 + i).toLowerCase();
 
 		indexAt.innerHTML = letter;
 
-		indexAt.addEventListener("click", () => {
-			displayItemsByLetter(letter);
-		});
-
+		// No need to add individual event listeners
 		alphabet.appendChild(indexAt);
 	}
 };
